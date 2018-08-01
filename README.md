@@ -1,7 +1,7 @@
 # 숫자야구 GA
 Using Genetic Algorithm to solve Bulls & Cows :baseball:
 
-Average of generations needed to reach goal in each 10000 executions
+## Average of generations needed to reach goal in each 10000 executions
 
 1. When Selection Pressure 0.5
 
