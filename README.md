@@ -1,6 +1,24 @@
 # 숫자야구 GA
 Using Genetic Algorithm to solve Bulls & Cows :baseball:
 
+## About
+[Bulls & Cows](https://en.wikipedia.org/wiki/Bulls_and_Cows) are known as 'Number Baseball' in Korea. 
+
+The rules are the same, but we also call the in-game terms differently:
+
+- `bulls` are `strikes`
+- `cows` are `balls`
+
+Just think about baseball and you'll get the main idea. :grin:
+
+This project uses GA to solve Bulls & Cows:
+
+1. Generate the secret number randomly & create the first generation of genes which are scored(20pts for each strikes, 10pts for each balls).
+2. Select 4 elite genes that have the most highest scores and make the next generation.
+3. Crossbreed random genes until we have 6 descendant genes and add them in next generation genes(Mutations can happen with a probability of 10% while crossbreeding).
+4. Switch to next generation and score the genes in the current generation.
+5. Repeat step 2~4 until the exact solution(the gene with a perfect score) is found.
+
 ## Example
 ```
 [*] GOAL : 73461
