@@ -20,8 +20,7 @@ class GA:
                 if g not in self.gene:
                     self.gene.append({
                         'number' : g,
-                        'score' : 0,
-                        'binary' : '{0:017b}'.format(int(g))
+                        'score' : 0
                     })
                     break
         self.generation = 0
@@ -29,6 +28,14 @@ class GA:
         for g in self.gene:
             g['score'] = self.score(g['number'])
         print('[*] GOAL : ' + self.goal)
+
+    def print_genes(self):
+        "Print all genes of current generatiom"
+        pass
+
+    def check_goal(self):
+        "Check if that any of the genes reached the goal"
+        pass
 
     def score(self, tries):
         "Score genes as a fitness function"
@@ -41,7 +48,12 @@ class GA:
                     result['ball'] += 1
         return result['strike']*20 + result['ball']*10
 
+    def choose(self, N):
+        "Return top N genes with high scores"
+        return sorted(self.gene, key=lambda k: k['score'], reverse=True)[:N]
+
 if __name__ == '__main__':
     # genetic = GA(input('input : '))
     genetic = GA('12345') # for testing :)
     print(genetic.gene)
+    print(genetic.choose(5))
