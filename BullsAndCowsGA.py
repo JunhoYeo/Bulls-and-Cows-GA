@@ -85,12 +85,12 @@ class GA:
     def next(self):
         for g in self.gene:
             g['score'] = self.score(g['number'])
-        self.print_genes()
+        # self.print_genes()
         if self.check_goal() == True:
             print('[*] Reached ' + str(self.goal) + ' in ' + str(self.generation) + ' generations')
             return self.generation
-        next_gene = self.choose(5)
-        for i in range(5):
+        next_gene = self.choose(4)
+        for i in range(6): # Selection Pressure : 0.6
             while True:
                 g = [g['number'] for g in random.sample(next_gene, 2)]
                 descendant = self.crossbreed(g[0], g[1])
