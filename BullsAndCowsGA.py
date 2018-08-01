@@ -2,6 +2,7 @@ import sys, random, datetime
 sys.setrecursionlimit(99999)
 
 def generate_gene():
+    "Generate random gene"
     gene = ''
     for i in range(5):
         while True:
@@ -13,6 +14,7 @@ def generate_gene():
 
 class GA:
     def __init__(self, answer):
+        "Initialize class GA"
         self.gene = []
         for i in range(10):
             while True:
@@ -85,7 +87,7 @@ class GA:
     def next(self):
         for g in self.gene:
             g['score'] = self.score(g['number'])
-        # self.print_genes()
+        self.print_genes()
         if self.check_goal() == True:
             print('[*] Reached ' + str(self.goal) + ' in ' + str(self.generation) + ' generations')
             return self.generation
@@ -107,13 +109,11 @@ class GA:
         return self.next()
 
 if __name__ == '__main__':
-    # genetic = GA(input('input : '))
-    # genetic = GA('12345') # for testing :)
     TEST_NUM = 10000
     s = 0
     for i in range(1, TEST_NUM + 1):
         print('[+] %dth Repeat'%i)
-        genetic = GA('12345')
+        genetic = GA(generate_gene())
         s += genetic.next()
         del(genetic)
     print('\n[+] RESULT : ' + str(s/TEST_NUM)) # average of generations needed to reach goal
